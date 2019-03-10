@@ -1,5 +1,7 @@
 # Presentations
 
+![Presentation GIF](Resources/PresentationGif-Raul.gif)
+
 ## Introduction
 
 This repository is a compilation of all documents and resources for talks I have spoken at in San Francisco, Ca.
