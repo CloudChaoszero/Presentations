@@ -4,6 +4,15 @@
 A PyBay 2019 talk
 by Raul Maldonado
 
+**Repo & Details Link**
+
+http://bit.ly/Raul-ABTesting
+
+**Google Colab**
+
+[Problems here](https://colab.research.google.com/drive/1XbyBPUUV9_5r89iZ9IATtQD23Jr0e9J8)
+[Solutions here](https://colab.research.google.com/drive/1GHMO8xcVkdoi7Q0IYyel4c-eyiZ8K8Ue)
+
 ## Overview
 
 This repository is designated for my PyBay 2019 talk on an (frequentist) approach to A/B Testing, in Python.
