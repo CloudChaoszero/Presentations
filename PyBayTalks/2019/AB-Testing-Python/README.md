@@ -10,9 +10,9 @@ http://bit.ly/Raul-ABTesting
 
 **Google Colab**
 
-[Problems here](https://drive.google.com/file/d/1XbyBPUUV9_5r89iZ9IATtQD23Jr0e9J8/view?usp=sharing)
+[Solutions here](https://drive.google.com/file/d/1XbyBPUUV9_5r89iZ9IATtQD23Jr0e9J8/view?usp=sharing)
 
-[Solutions here](https://drive.google.com/file/d/1GHMO8xcVkdoi7Q0IYyel4c-eyiZ8K8Ue/view?usp=sharing)
+[Notebook w/o Solutions here](https://drive.google.com/file/d/1GHMO8xcVkdoi7Q0IYyel4c-eyiZ8K8Ue/view?usp=sharing)
 
 ## Overview
 
