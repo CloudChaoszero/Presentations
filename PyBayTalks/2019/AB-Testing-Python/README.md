@@ -39,7 +39,7 @@ That is, Considering two ad Campaigns A & B, each with it's unique distinction, 
 
 ## Resources
 
-* [Code](Code/ABTesting-Presentation-2019.ipynb)
+* [Code](Code/)
 
 * [Technical Requirements](Resources/technicalRequirements/environment.yaml)
     * ```conda env create -f environment.yaml```
