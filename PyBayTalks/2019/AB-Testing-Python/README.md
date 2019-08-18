@@ -30,7 +30,7 @@ Also, let's say we have an alternative ad campaign B with slight modification fr
 
 This in mind, our goal is to decide to see if there is a difference in the campaign's Click Through Rate (CTR) performance such that we increase our engagement.
 
-> We define $\text{CTR} := \tfrac{\text{Total Number of Successes}}{\text{Total Number of Events}}$
+We define $\text{CTR} := \tfrac{\text{Total Number of Successes}}{\text{Total Number of Events}}$
 
 That is, Considering two ad Campaigns A & B, each with it's unique distinction, we want to evaluate if there is a difference, a statistical difference in fact, in CTR performance.
 
