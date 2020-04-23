@@ -13312,7 +13312,6 @@ I am not a core-contributor to the Lifelines project</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Survival Analysis is used to estimate the time of event of interest for some sample or population. 
 <a href="https://timesofmalta.com/articles/view/history-of-survival-analysis.705424">In it’s origination through medical research</a>, one would like to understand the time of death, as random variable time <strong>T</strong> goes on. Since it's origination, the analysis has been used in other applications like customer churn, error logging, or mechanical failure.</p>
-<p>It solves the problem of right-censoring, mentioned later. Even with no censoring, this analysis is still great for understanding time and events of interest.</p>
 
 </div>
 </div>
@@ -13335,17 +13334,16 @@ I am not a core-contributor to the Lifelines project</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's look at the customer churn scenario.</p>
-<p>Say we have database of Insta2U customers and their subscriptions, for a fake company called Insta2u, a delivery service for 2U albums. This database has times of start and ending of subscription dates, and their associated features/signals.</p>
-<p>Because of the start and end date of these customer, we can observe these customer's life expectancies (or their churn) over time <strong>t</strong>, seen below:</p>
-
+<center>  Let's look at the customer churn scenario.</center>
 </div>
 </div>
 </div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="resources/images/Survival-Curve-1st-Example.png" alt="Survival Curve Example" class="center"></p>
+<p>Say we have database of Insta2U customers and their subscriptions,a fake a delivery service company for 2U albums. This database has start &amp; ending of subscription dates, and the customer's associated features/signals.</p>
+<p>Because of the start and end date of these customer, we can observe these customer's life expectancies (or their churn) over time <strong>t</strong>, seen below:</p>
+<p>Moreover, there are special properties of this implementation we can utilize to ensure we have an accurate depiction of observing the event of interest, in our case churn, over time.</p>
 
 </div>
 </div>
@@ -13353,7 +13351,7 @@ I am not a core-contributor to the Lifelines project</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Moreover, there are special properties of this implementation we can utilize to ensure we have an accurate depiction of observing the event of interest, in our case churn, over time.</p>
+<p><img src="resources/images/Survival-Curve-1st-Example.png" alt="Survival Curve Example" class="center"></p>
 
 </div>
 </div>
@@ -13376,6 +13374,7 @@ I am not a core-contributor to the Lifelines project</p>
 <li><p>And if we only consider one segmentation of individuals, say those who had their event of occurence happen, we too still underestimate our average of the values.</p>
 </li>
 </ul>
+<p>So, it solves the problem of right-censoring, mentioned later. Even with no censoring, this analysis is still great for understanding time and events of interest.</p>
 
 </div>
 </div>
@@ -13427,9 +13426,7 @@ I am not a core-contributor to the Lifelines project</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Example imports:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lifelines.plotting</span> <span class="kn">import</span> <span class="n">plot_lifetimes</span>
-<span class="kn">from</span> <span class="nn">lifelines</span> <span class="kn">import</span> <span class="n">KaplanMeierFitter</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lifelines</span> <span class="kn">import</span> <span class="n">KaplanMeierFitter</span>
 </pre></div>
 
 </div>
@@ -13446,10 +13443,11 @@ I am not a core-contributor to the Lifelines project</p>
 <li>Handles right, left and interval censored data</li>
 <li>Estimating Hazard Rates</li>
 <li>Defining personal Survival Models</li>
-<li>Can compare two survival functions<ul>
+<li>Compare two or more survival functions<ul>
 <li><code>lifelines.statistics.logrank_test()</code></li>
 </ul>
 </li>
+<li>and more!</li>
 </ul>
 
 </div>
@@ -13465,9 +13463,9 @@ I am not a core-contributor to the Lifelines project</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Survival-Function">Survival Function<a class="anchor-link" href="#Survival-Function">&#182;</a></h4><p>The survival function estimates the probability of surviving past some time $t$, for the observations going to $t \rightarrow \infty$.</p>
+<h4 id="Survival-Function">Survival Function<a class="anchor-link" href="#Survival-Function">&#182;</a></h4><p>The survival function $S(t)$ estimates the probability of surviving past some time $t$, for the observations going to $t \rightarrow \infty$.</p>
 <p>As a definition:</p>
-<p>"Let $T$ be a non-negative random lifetime taken from the population. The survival function  $S(t)$ is defined as</p>
+<p>For $T$ be a non-negative random lifetime taken from the population, the survival function  $S(t)$ is defined as</p>
 $$S(t) = \text{Pr}(T&gt;t) = 1-F(t)$$<p>where $T$ is the response variable, where $T \geq 0$</p>
 
 </div>
@@ -13503,7 +13501,7 @@ $$S(t) = \text{Pr}(T&gt;t) = 1-F(t)$$<p>where $T$ is the response variable, wher
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Kaplan-Meier Estimation allows us to create an algorithm to calculate $S(t)$ to estimate probabilities of individuals surviving past some time $t$.</p>
+<p>Kaplan-Meier Estimation allows us to create an algorithm to calculate $S(t)$.</p>
 
 </div>
 </div>
@@ -13522,7 +13520,7 @@ $$S(t) = \text{Pr}(T&gt;t) = 1-F(t)$$<p>where $T$ is the response variable, wher
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's look at our Customer Churn example <a href="https://github.com/CamDavidsonPilon/lifelines/blob/master/examples/Customer%20Churn.ipynb">using this dataset</a> from the Lifelines example workbooks.</p>
+<p>Let's look at our Customer Churn scenario, and apply it as an example <a href="https://github.com/CamDavidsonPilon/lifelines/blob/master/examples/Customer%20Churn.ipynb">using this Customer dataset</a> from the Lifelines example workbooks.</p>
 
 </div>
 </div>
@@ -13872,10 +13870,12 @@ $$S(t) = \text{Pr}(T&gt;t) = 1-F(t)$$<p>where $T$ is the response variable, wher
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">kmf</span><span class="o">.</span><span class="n">event_table</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We output the Event occurence table over time &#39;event_at&#39;&quot;</span><span class="p">)</span>
+
+<span class="n">kmf</span><span class="o">.</span><span class="n">event_table</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13888,7 +13888,18 @@ $$S(t) = \text{Pr}(T&gt;t) = 1-F(t)$$<p>where $T$ is the response variable, wher
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[35]:</div>
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>We output the Event occurence table over time &#39;event_at&#39;
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[37]:</div>
 
 
 
@@ -13980,10 +13991,12 @@ $$S(t) = \text{Pr}(T&gt;t) = 1-F(t)$$<p>where $T$ is the response variable, wher
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">kmf</span><span class="o">.</span><span class="n">confidence_interval_</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;As another part of the functionality with Lifelines are&quot;</span> <span class="o">+</span>
+      <span class="s2">&quot;conveniently printing out statistical information as Dataframes&quot;</span><span class="p">)</span>
+<span class="n">kmf</span><span class="o">.</span><span class="n">confidence_interval_</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13996,7 +14009,18 @@ $$S(t) = \text{Pr}(T&gt;t) = 1-F(t)$$<p>where $T$ is the response variable, wher
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[36]:</div>
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>As another part of the functionality with Lifelines areconveniently printing out statistical information as Dataframes
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[38]:</div>
 
 
 
@@ -14063,8 +14087,31 @@ $$S(t) = \text{Pr}(T&gt;t) = 1-F(t)$$<p>where $T$ is the response variable, wher
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="What-about-Regression?">What about Regression?<a class="anchor-link" href="#What-about-Regression?">&#182;</a></h3><h3 id="How-is-this-type-of-Regression-different-from-Linear-or-Logistic-Regression?">How is this type of Regression different from Linear or Logistic Regression?<a class="anchor-link" href="#How-is-this-type-of-Regression-different-from-Linear-or-Logistic-Regression?">&#182;</a></h3><p>We are interested in how risk factors were associated with presence or absence of disease in regression. However, what happens if a study drops out? Also, what if we are interested in how a risk factor or treatment affects time to event of interest?</p>
-<p>Logistic Regression is not ideal for that.</p>
+<h3 id="What-about-Regression?">What about Regression?<a class="anchor-link" href="#What-about-Regression?">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Survival regression allows us to regress other feature against another variable--this case durations. This regression is particularly different in that:</p>
+<ul>
+<li>It abides to characteristic of censoring, compared to traditional Linear Regression</li>
+<li>Though it can operate like traditional linear regression, itt is used to explore the relationship between the 'survival' of person and characteristics<ul>
+<li>Predict the survivability through the model, as opposed to predicting estimations </li>
+</ul>
+</li>
+<li>All models attempt to represent the hazard rate $h(t|x_i)$ for some $i=1....n$ </li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An example of this implementation will be covered in a future talk.</p>
+<p>However, there are example of implementing <a href="https://lifelines.readthedocs.io/en/latest/Survival%20Regression.html#survival-regression">Survival Regression in the Lifelines documentation</a>.</p>
 
 </div>
 </div>
@@ -14072,7 +14119,33 @@ $$S(t) = \text{Pr}(T&gt;t) = 1-F(t)$$<p>where $T$ is the response variable, wher
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="-With-that-being-said-"><center> With that being said </center><a class="anchor-link" href="#-With-that-being-said-">&#182;</a></h2>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="-Thank-you,-"><center> Thank you, </center><a class="anchor-link" href="#-Thank-you,-">&#182;</a></h2><p><img src="resources/images/BayPiggies.png" alt="BayPiggies" class="right"></p>
+<ul>
+<li><a href="https://raulingaverage.dev/">RaulingAverage.dev</a></li>
+<li><a href="https://twitter.com/RaulingAverage">Twitter: @RaulingAverage</a></li>
+<li><a href="https://github.com/CloudChaoszero/Presentations/tree/master/BayPiggies/Survival-Analysis">Notebook @ CloudChaoszero/Presentations/BayPiggies/Survival-Analysis</a></li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Resources">Resources<a class="anchor-link" href="#Resources">&#182;</a></h1><ul>
+<li><p><a href="https://github.com/CamDavidsonPilon/lifelines/blob/master/examples/Customer%20Churn.ipynb">DataSource</a></p>
+</li>
+<li><p>There is an R implementation called <a href="https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html">Survival</a></p>
+</li>
+<li>There is a Sci-kit Learn equivalent called <a href="https://readthedocs.org/projects/scikit-survival/">Scikit-Survival</a></li>
+</ul>
 
 </div>
 </div>
